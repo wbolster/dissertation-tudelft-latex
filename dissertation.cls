@@ -173,7 +173,7 @@
 %% full name to the PDF meta data.
 \renewcommand*\author[2]{%
     \def\@firstname{#1}%
-    \def\@lastname{#2}%
+    \def\@lastname{\uppercase{#2}}%
     \hypersetup{pdfauthor=#1\ #2}%
 }
 
