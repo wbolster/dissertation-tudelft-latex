@@ -460,7 +460,7 @@
 }
 
 %% Create an unnumbered reference section.
-\addto\captionsenglish{\renewcommand*\bibname{\color{title}References}}
+\addto\captionsenglish{\renewcommand*\bibname{References}}
 \newcommand*\references[1]{%
     \bibliographystyle{dissertation}%
     \bibliography{#1}%
