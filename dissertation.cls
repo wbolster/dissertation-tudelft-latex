@@ -47,6 +47,19 @@
 \RequirePackage[sectionbib,numbers,sort&compress]{natbib}
 \RequirePackage{tikz}
 \RequirePackage[noindentafter]{titlesec}
+\@ifpackagelater{titlesec}{2016/03/21}{%
+	% Package titlesec is on version 2.10.2 or higher, nothing to do %
+}{%
+	% Check if package titlesec is on version 2.10.1 %
+	\@ifpackagelater{titlesec}{2016/03/15}{%
+		% Package titlesec on version 2.10.1, patch accordingly %
+		\RequirePackage{etoolbox}%
+		\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}%
+		\patchcmd{\ttlh@hang}{\noindent}{}{}{}%
+	}{%
+		% Package titlsec is on version 2.10.0 or lower, nothing to do %
+	}%
+}
 \RequirePackage{titletoc}
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage{xcolor}
